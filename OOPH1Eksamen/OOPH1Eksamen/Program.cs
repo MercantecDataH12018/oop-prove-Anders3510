@@ -1,110 +1,146 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#pragma warning disable 
+#pragma warning disable
 namespace OOPH1Eksamen
 {
-    /*
-     * I alle de følgende opgaver er der en tilstødende klasse. Det er
-     * den der skal arbejdes med i den givne opgave.
-     * Navnene på klasserne er irrelevante for jer og må IKKE ændres
-     * 
-    */
+	/*
+	 * I alle de følgende opgaver er der en tilstødende klasse. Det er
+	 * den der skal arbejdes med i den givne opgave.
+	 * Navnene på klasserne er irrelevante for jer og må IKKE ændres
+	 * 
+	*/
 
 
-    class Program {
-        public static void Main() {
-            //Denne funktion kan du bruge til at teste din kode
-            Console.WriteLine("Hello World!");
-        }
-    }
+	class Program
+	{
+		public static void Main()
+		{
+			//Denne funktion kan du bruge til at teste din kode
+			I i = new I();
+			i.PrintM();
+		}
+	}
 
-    //OPG Tilføj en property for Alder kaldet "age" til den følgende class
-    class B
-    {
-        public string name = "";
-        public int legs = 2;
-    }
+	//OPG Tilføj en property for Alder kaldet "age" til den følgende class
+	class B
+	{
+		public string name = "";
+		public int legs = 2;
+		public int age;
+	}
 
-    //OPG Tilføj en string property kaldet 'brand' til følgende class
-    class E
-    {
+	//OPG Tilføj en string property kaldet 'brand' til følgende class
+	class E
+	{
+		string brand;
+	}
 
-    }
+	//OPG Tilføj en metode der kan forstørre 'a' med 1 hver gang den kaldes
+	class C
+	{
+		public int a;
 
-    //OPG Tilføj en metode der kan forstørre 'a' med 1 hver gang den kaldes
-    class C
-    {
-        public int a;
-    }
+		public void A_inc()
+		{
+			a += 1;
+		}
+	}
 
-    //OPG Tilføj en metode kaldet "getA" der kan returnere værdien i a
-    class G
-    {
-        string a = "Hello!";
-    }
+	//OPG Tilføj en metode kaldet "getA" der kan returnere værdien i a
+	class G
+	{
+		string a = "Hello!";
+		public string getA()
+		{
+			return a;
+		}
+	}
 
-    //OPG Tilføj en metode der kan tilføje et tal til numbers. Numbers skal
-    //forblive private.
-    class F
-    {
-        List<int> numbers = new List<int>();
-    }
+	//OPG Tilføj en metode der kan tilføje et tal til numbers. Numbers skal
+	//forblive private.
+	class F
+	{
+		List<int> numbers = new List<int>();
 
-    //OPG Implementer encapsulation i denne klasse, men gør således det stadig 
-    //er muligt at læse værdierne 'a' og 'b'
-    class D
-    {
-        public int a;
-        public string b;
-    }
+		public void AddNumber(int a)
+		{
+			numbers.Add(a);
+		}
+	}
 
-    //OPG Lav en constructor der sætter alle properties af følgende klasse
-    class A
-    {
-        public int a;
-        public string b;
-        public double c;
-    }
+	//OPG Implementer encapsulation i denne klasse, men gør således det stadig 
+	//er muligt at læse værdierne 'a' og 'b'
+	class D
+	{
+		public readonly int a;
+		public readonly string b;
+	}
 
-    //OPG klassen H skal have en reference til klasse A, kaldet 'a'. Lav en constructor der
-    //sætter denne til reference til et objekt af A
-    class H
-    {
-        
-    }
+	//OPG Lav en constructor der sætter alle properties af følgende klasse
+	class A
+	{
+		public int a;
+		public string b;
+		public double c;
 
-    //OPG Ændre funktionen PrintM, således at den ikke crasher programmet hvis den køres.
-    class I 
-    {
-        public string text;
+		public A(int a, string b, double c)
+		{
+			this.a = a;
+			this.b = b;
+			this.c = c;
+		}
+	}
 
-        public void PrintM(){
-            Console.WriteLine("Text is " + text.Length + "long");
-        }
-    }
+	//OPG klassen H skal have en reference til klasse A, kaldet 'a'. Lav en constructor der
+	//sætter denne til reference til et objekt af A
+	class H
+	{
+		A reference;
 
-    //OPG Invoke kan faile hvis der gives en null værdi til dens constructor.
-    //sørg for at dette ikke kan forekomme ved kun at ændre på Invoke
-    class J
-    {
-        public I i;
+		public H()
+		{
+			reference = new A(1,"",2.0);
+		}
+	}
 
-        public void Invoke() {
-            i.PrintM();
-        }
+	//OPG Ændre funktionen PrintM, således at den ikke crasher programmet hvis den køres.
+	class I
+	{
+		public string text;
 
-        public J(I i) {
-            this.i = i;
-        }
-    }
+		public void PrintM()
+		{
+			if(text != null)
+				Console.WriteLine("Text is " + text.Length + "long");
+		}
+	}
 
-    //OPG Herunder skal du selv implementere en class kaldet MyClass der
-    //er subclass til C. Tilføj et public string felt kaldet 'myString'.
+	//OPG Invoke kan faile hvis der gives en null værdi til dens constructor.
+	//sørg for at dette ikke kan forekomme ved kun at ændre på Invoke
+	class J
+	{
+		public I i;
 
-    class MyClass {
-        
-    }
+		public void Invoke()
+		{
+			if(i != null)
+				i.PrintM();
+		}
+
+		public J(I i)
+		{
+			this.i = i;
+		}
+	}
+
+	//OPG Herunder skal du selv implementere en class kaldet MyClass der
+	//er subclass til C. Tilføj et public string felt kaldet 'myString'.
+
+	class MyClass : C
+	{
+		public string myString;
+	}
 
 
 
